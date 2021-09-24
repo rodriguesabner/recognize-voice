@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Mic} from "react-feather";
 import {BottomContent, Container, Layout, ListMessages, Message, TopWrapper} from "./styles";
-import {Speak} from "../../util/Speak";
 import {api} from "../../services/api";
 
 const Home = () => {
@@ -54,7 +53,7 @@ const Home = () => {
 
         setMessages(prevState => [...prevState, {message: transcript, isBot: false}]);
 
-        const defaultNaming = "alice";
+        const defaultNaming = "cortana";
         if (transcript.includes(defaultNaming)) {
             if (transcript.includes(`${defaultNaming} agendar evento`)) {
                 const message = "Certo! O que deseja agendar?";
@@ -65,6 +64,25 @@ const Home = () => {
                 await audio.play();
 
                 setMessages(prevState => [...prevState, {message, isBot: true}]);
+            }
+        }
+
+        console.log(defaultNaming);
+        if (transcript.includes(defaultNaming)) {
+            if (transcript.includes("spotify")) {
+                window.open("https://play.spotify.com");
+            }
+
+            if(transcript.includes("facebook")) {
+                window.open("fb://profile/rodriguesabner_");
+            }
+
+            if(transcript.includes("bradesco")) {
+                window.open("com.bradesco://");
+            }
+
+            if(transcript.includes("bradesco")) {
+                window.open("com.bradesco://");
             }
         }
 
