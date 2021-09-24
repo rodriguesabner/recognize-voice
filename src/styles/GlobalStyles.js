@@ -1,4 +1,12 @@
-import {createGlobalStyle} from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
+
+export const Container = styled.div`
+  width: 100%;
+  height: calc(100% - 68px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`;
 
 export default createGlobalStyle`
   * {
@@ -32,8 +40,8 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    width: 0;
+    height: 0;
   }
 
   ::-webkit-scrollbar-track {
